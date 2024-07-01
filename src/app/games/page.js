@@ -9,7 +9,7 @@ export default async function Page() {
     const db = connect() 
     const data = (await db.query(`SELECT * FROM games`)).rows
 
-    console.log(data)
+    // console.log(data)
     return (
         <div className="flex justify-center">
             <h1 className={`${cuteFont.className} text-4xl`}>Games: </h1>

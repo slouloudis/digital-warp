@@ -1,4 +1,5 @@
 import connect from "@/utils/connect"
+import { DeleteButton } from "@/components/DeleteButton"
 
 export default async function Page({params}) {
     const db = connect()
@@ -6,6 +7,7 @@ export default async function Page({params}) {
 
     return (
         <div className="flex justify-center align-top flex-col w-80 text-center mx-auto">
+            <DeleteButton id={params.game_id} />
             <h2 className="text-2xl">{game.title}</h2>
             <p>{game.description}</p>
             <div className="flex justify-center">
