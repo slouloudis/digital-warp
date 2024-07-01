@@ -2,6 +2,7 @@ import { cuteFont } from "@/app/layout"
 import connect from "@/utils/connect"
 import { redirect } from "next/navigation"
 import { revalidatePath } from "next/cache"
+
 export default function Page() {
     async function handleSubmit(formData) {
         "use server"
@@ -9,16 +10,16 @@ export default function Page() {
         const {title, img_url, description, genre, year_released, score, platform, developer} = obj
         const db = connect()
 
-        db.query(`INSERT INTO games (title, img_url, description, genre, year_released, score, platform, developer) VALUES ($1, $2 $3, $4, $5, $6, $7, $8)`, [title, img_url, description, genre, year_released, score, platform, developer])
+        db.query(`INSERT INTO games (title, img_url, description, genre, year_released, score, platform, developer) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`, [title, img_url, description, genre, year_released, score, platform, developer])
 
         revalidatePath('/games')
         redirect('/games')
 
     }
     return (
-        <div>
+        <div className="text-black">
             <marquee scrolldelay='100'><h3>Think you have what it takes? Submit a <span className={`${cuteFont.className} text-xl`}>game</span></h3></marquee>
-            <form action={handleSubmit} className="flex flex-col w-60 m-auto">
+            <form action={handleSubmit} className="flex flex-col w-60 m-auto text-black">
                 <input name="title" placeholder="title"></input>
                 <input name="img_url" placeholder="img_url"></input>
                 <input name="description" placeholder="description"></input>
