@@ -1,5 +1,8 @@
 import connect from "@/utils/connect"
 import { DeleteButton } from "@/components/DeleteButton"
+import Link from "next/link"
+
+export const dynamic = 'force-dynamic'
 
 export default async function Page({params}) {
     const db = connect()
@@ -8,6 +11,7 @@ export default async function Page({params}) {
     return (
         <div className="flex justify-center align-top flex-col w-80 text-center mx-auto">
             <DeleteButton id={params.game_id}/>
+            <Link href={`/games/${params.game_id}/edit`}>edit</Link>
             <h2 className="text-2xl">{game.title}</h2>
             <p>{game.description}</p>
             <div className="flex justify-center">
