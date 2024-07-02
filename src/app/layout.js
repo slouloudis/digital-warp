@@ -1,7 +1,14 @@
 import { Gothic_A1, Cute_Font} from "next/font/google";
 import "./globals.css";
 import NavigationBar from "@/components/Navigation-Bar";
-import Test from "@/components/Test";
+
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
 
 
 const gothicA1 = Gothic_A1({weight: '300', subsets: ['latin']})
@@ -14,7 +21,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <ClerkProvider>
+      <html lang="en">
       {/* bg-hero and bg-vDark-grey are defined in the tailwind config - custom themes. */}
       <body className={`${gothicA1.className} bg-hero bg-vDark-grey`}>
         <NavigationBar/>
@@ -22,6 +30,7 @@ export default function RootLayout({ children }) {
         {children}
         </div>
         </body>
-    </html>
+      </html>
+    </ClerkProvider>
   );
 }

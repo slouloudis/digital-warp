@@ -1,5 +1,9 @@
-export default function Test() {
+"use client"
+
+import { useState } from "react"
+export default function Test({theText}) {
+    const [greeting, setGreeting] = useState(theText ?? 'This is a fallback')
     return (
-        <p>Whats the problem</p>
+        <p>This was the prop passed: {greeting}</p>
     )
 }
