@@ -19,7 +19,7 @@ export default function Page() {
     return (
         <div className="text-black">
             <marquee scrolldelay='100'><h3>Think you have what it takes? Submit a <span className={`${cuteFont.className} text-xl`}>game</span></h3></marquee>
-            <form action={handleSubmit} className="flex flex-col w-60 m-auto text-black">
+            <form action={handleSubmit} style={{color: "black"}} className="flex flex-col w-60 m-auto text-black">
                 <input name="title" placeholder="title"></input>
                 <input name="img_url" placeholder="img_url"></input>
                 <input name="description" placeholder="description"></input>
@@ -28,7 +28,7 @@ export default function Page() {
                 <input name="score" placeholder="score"></input>
                 <input name="platform" placeholder=" platform"></input>
                 <input name="developer" placeholder=" developer"></input>
-                <button type="submit" className="m-8">_submit</button>
+                <button type="submit" className="m-8 border-solid border-2 border-orange-700 hover:border-rose-600" style={{color: "tomato"}}>_submit</button>
             </form>
         </div>
     )
