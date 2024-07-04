@@ -2,6 +2,7 @@ import { cuteFont } from "@/app/layout"
 import connect from "@/utils/connect"
 import { redirect } from "next/navigation"
 import { revalidatePath } from "next/cache"
+import ToastDemo from "@/components/Toast"
 
 export default function Page() {
     async function handleSubmit(formData) {
@@ -13,7 +14,7 @@ export default function Page() {
         db.query(`INSERT INTO games (title, img_url, description, genre, year_released, score, platform, developer) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`, [title, img_url, description, genre, year_released, score, platform, developer])
 
         revalidatePath('/games')
-        redirect('/games')
+        // redirect('/games')
 
     }
     return (
@@ -28,7 +29,9 @@ export default function Page() {
                 <input name="score" placeholder="score"></input>
                 <input name="platform" placeholder=" platform"></input>
                 <input name="developer" placeholder=" developer"></input>
-                <button type="submit" className="m-8 border-solid border-2 border-orange-700 hover:border-rose-600" style={{color: "tomato"}}>_submit</button>
+                <ToastDemo>
+                   
+                </ToastDemo>
             </form>
         </div>
     )

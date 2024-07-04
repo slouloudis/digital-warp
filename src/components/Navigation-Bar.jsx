@@ -7,9 +7,9 @@ import { auth } from "@clerk/nextjs/server"
 import { currentUser } from "@clerk/nextjs/server"
 export default async function NavigationBar() {
     const userInfo = await currentUser()
-    console.log(userInfo)
+    // console.log(userInfo)
     const user = auth()
-    console.log(user)
+    // console.log(user)
     return (
         <ol className="flex sticky *:m-4 items-start h-1/6">
             <li><Link href='/'><Logo/></Link></li>
