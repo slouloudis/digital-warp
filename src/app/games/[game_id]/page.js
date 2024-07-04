@@ -12,9 +12,12 @@ export default async function Page({params}) {
         const db = connect()
         game = (await db.query(`SELECT * FROM games WHERE id=$1`, [params.game_id])).rows[0]
     } catch (err) {
+        // error will be thrown if we try to query the id column with a string 
+        // if the user visits (/games/this-is-a-string-not-an-id)
         notFound()
     }
 
+    // if game is undefined (because that id isn't int our database)
     if (!game) {
         notFound()
     }
