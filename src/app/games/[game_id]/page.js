@@ -7,6 +7,9 @@ import { notFound } from "next/navigation"
 export const dynamic = 'force-dynamic'
 
 export default async function Page({params}) {
+    // 1
+    // 20001
+    // some-game-name
     let game;
     try {
         const db = connect()
@@ -18,6 +21,8 @@ export default async function Page({params}) {
     }
 
     // if game is undefined (because that id isn't int our database)
+    // make sure to import { notFound } from "next/navigation"
+    // this will tell nextjs to show the not-found.js file instead of the page.
     if (!game) {
         notFound()
     }
